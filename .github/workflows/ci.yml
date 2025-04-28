@@ -1,10 +1,7 @@
-name: Simple CI Workflow
+name: CI Workflow
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
@@ -14,12 +11,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Run a simple command
-        run: echo "✅ Workflow is running successfully without npm!"
+      - name: Dummy build step
+        run: echo "Build step would go here"
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
 
     steps:
       - name: Deploy application
-        run: echo "Deploying application..
+        run: echo "Deploying application..."
